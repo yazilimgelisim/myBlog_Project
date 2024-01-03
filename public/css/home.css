@@ -1,0 +1,12 @@
+.home{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   margin: 10px 0;
+}
+.home .wrapper{
+   width: 100%;
+   max-width: 1366px;
+   display: flex;
+}

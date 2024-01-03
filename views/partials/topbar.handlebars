@@ -1,0 +1,38 @@
+<div class="topbar">
+   <div class="wrapper target">
+      <div class="left">
+         <i class="fa-brands fa-square-x-twitter"></i>
+         <i class="fa-brands fa-square-instagram"></i>
+         <i class="fa-brands fa-square-facebook"></i>
+         <i class="fa-brands fa-square-pinterest"></i>
+      </div>
+      <div class="center">
+         <a href="/">HOME</a>
+
+         <a href="/about">ABOUT</a>
+
+         {{#if userLink}}
+         <a href="/admin/add">ADD</a>
+         <a href="/login/logout">LOGOUT</a>
+         {{/if}}
+
+         {{#unless userLink}}
+         <a href="/register">REGISTER</a>
+         <a href="/login">LOGIN</a>
+         {{/unless}}
+      </div>
+      <div class="right">
+
+         {{#if userLink}}
+         <span class="user">
+            <img src="/img/user/user-1.png" alt="user">
+         </span>
+         {{/if}}
+
+         <div id="searchEngine" class="searchEngine">
+            <input type="text" placeholder="...">
+            <i id="topbar" class="fa-solid fa-magnifying-glass"></i>
+         </div>
+      </div>
+   </div>
+</div>

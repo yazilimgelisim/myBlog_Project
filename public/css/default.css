@@ -1,0 +1,27 @@
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
+html::-webkit-scrollbar{
+   width: 0px;
+}
+html{
+   scroll-behavior: smooth;
+}
+body{
+   width: 100%;
+   height: auto;
+   min-height: 100vh;
+   background-color: #efefef;
+}
+a, a:active, a::before, a::after, a:link{
+   color: black;
+   text-decoration: none;
+}
+ul{
+   list-style: none;
+}
+img, video{
+   width: 100%;
+}

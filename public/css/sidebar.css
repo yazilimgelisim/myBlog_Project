@@ -1,0 +1,68 @@
+.sidebar{
+   flex: 3;
+   padding: 20px;
+}
+.sidebar .area{
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   padding: 10px;
+   border-radius: 10px;
+   margin-bottom: 30px;
+}
+.sidebar h3{
+   width: 100%;
+   margin: 5px 0px;
+   position: relative;
+   font-family: 'Pacifico', cursive;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 3px;
+}
+.sidebar h3::after{
+   content: '';
+   position: absolute;
+   width: 50%;
+   height: 2px;
+   background-color: rgba(0, 0, 0, 0.6);
+   bottom: 0;
+}
+.sidebar img{
+   margin-top: 10px;
+   transform: scale(0.95);
+   border-radius: 10px;
+}
+.sidebar .categories{
+   width: 100%;
+   gap: 10px;
+   display: flex;
+   flex-wrap: wrap;
+}
+.sidebar .categories span{
+   width: calc(50% - 10px);
+   font-weight: 500;
+   font-family: 'Arvo', serif;
+   padding: 2px;
+   background-color: rgba(0, 0, 0, 0.03);
+   cursor: pointer;
+   border-radius: 2px;
+}
+.sidebar .list a{
+   display: block;
+   margin: 10px 0px;
+   padding: 3px;
+   background-color: rgba(0, 0, 0, 0.03);
+   font-family: 'Josefin Sans', sans-serif;
+}
+.sidebar .list a:nth-child(2n){
+   background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Scroll animation */
+
+.sidebar .area{
+   transition: all 0.8s;
+   opacity: 0;
+}
+.sidebar .area.active{
+   opacity: 1;
+}

@@ -1,0 +1,42 @@
+<div class="add">
+   <form class="form" id="add">
+      <div class="text">
+         <input type="text" name="title" placeholder="Your Title *" required>
+         <textarea type="text" name="content" placeholder="Your Content *" required></textarea>
+         <input type="text" name="author" placeholder="Your Name *" required>
+      </div>
+
+      <div class="button">
+         <button type="submit">
+            <i class="fa-solid fa-plus"></i>
+         </button>
+         <label for="file">
+            <i class="fa-solid fa-image"></i>
+         </label>
+         <input name="files" type="file" id="file" style="display: none;">
+      </div>
+   </form>
+</div>
+
+<script>
+   const add = document.getElementById('add')
+   add.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const formData = new FormData(e.target);
+      fetch('/admin/add', {
+         method: 'post',
+         body: formData
+      }).then((response) => response.json())
+         .then((res) => {
+            if (res.case) {
+               setTimeout(() => {
+                  window.location.href = '/'
+               }, 1000 * 2)
+            }
+            else{
+               console.log(res)
+            }
+         })
+         .catch((err) => console.log(err))
+   })
+</script>

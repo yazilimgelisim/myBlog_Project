@@ -1,0 +1,62 @@
+{{#if data}}
+<div class="single">
+   <div class="wrapper">
+      <input id="id" type="text" style="display: none;" value="{{data._id}}">
+      <h2>
+         {{data.title}}
+         <div class="button">
+            {{#if userLink}}
+            <button title="Edit Post" id="editButton">
+               <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button title="Delete Post" id="deleteButton">
+               <i class="fa-regular fa-trash-can"></i>
+            </button>
+            {{/if}}
+         </div>
+      </h2>
+      <img src="{{data.imgURL}}" alt="single">
+      <p>{{data.content}}</p>
+      <div class="authorAndDate">
+         <span>{{data.author}}</span>
+         <span>{{data.date}}</span>
+      </div>
+   </div>
+</div>
+
+{{#if userLink}}
+<script>
+   const editButton = document.getElementById('editButton')
+   const deleteButton = document.getElementById('deleteButton')
+   const inputID = document.getElementById('id')
+
+   editButton.addEventListener('click', () => {
+      const id = inputID.value
+      window.location.href = `/admin/edit/${id}`
+   })
+
+   deleteButton.addEventListener('click', () => {
+      const id = inputID.value
+      const formData = new FormData()
+      formData.append('id', id)
+      fetch('/admin/delete', {
+         method: 'post',
+         body: formData
+      }).then((response) => response.json())
+         .then((res) => {
+            if(res.case){
+               console.log(res)
+               setTimeout(()=>{
+                  window.location.href = '/'
+               }, 3000)
+            }
+            else{
+               console.log(res)
+            }
+         }).catch((err) => {
+            console.log(err)
+         })
+   })
+</script>
+{{/if}}
+{{/if}}

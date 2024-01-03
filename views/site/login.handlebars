@@ -1,0 +1,40 @@
+<div class="register">
+   <img src="/img/background/login.jpg" alt="login">
+   <form id="login">
+      <div class="formGroup">
+         <input type="text" name="username" required>
+         <span>Username *</span>
+      </div>
+
+      <div class="formGroup">
+         <input type="text" name="password" required>
+         <span>Password *</span>
+      </div>
+
+      <div class="btnGroup">
+         <a href="/login">Don't you have an account?</a>
+         <button>Login</button>
+      </div>
+   </form>
+</div>
+
+
+<script>
+   const login = document.getElementById('login')
+   login.addEventListener('submit', (e)=>{
+      e.preventDefault()
+      const formData = new FormData(e.target)
+      fetch('/login', {
+         method:'post', 
+         body:formData
+      }).then((response)=>response.json())
+      .then(res=>{
+         if(res.case){
+            window.location.href = '/'
+         }
+         else{
+            console.log(res)
+         }
+      })
+   })
+</script>

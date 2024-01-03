@@ -1,0 +1,63 @@
+.header{
+   width: 100%;
+   margin-top: 70px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.header h1{
+   font-family: 'Pacifico', cursive;
+   position: absolute;
+   font-size: 4rem;
+   top: -50px;
+   color: white;
+   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5), 0px 0px 6px rgba(0, 0, 0, 0.5), 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+.header h2{
+   font-family: 'Satisfy', cursive;
+   position: absolute;
+   top: 80px;
+   font-size: 2.6rem;
+   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.header img{
+   height: 450px;
+   object-fit: cover;
+}
+
+
+/* Scroll animation area */
+
+
+.header{
+   transition: all 0.5s;
+   transform: translateX(-15px);
+   opacity: 0;
+}
+.header.active{
+   transform: translateX(0px);
+   opacity: 1;
+}
+.header h1{
+   transition: all 0.6s;
+   transform: translateY(-10px);
+   opacity: 0;
+}
+.header.active h1{
+   transition: all 0.6s;
+   transform: translateY(0px);
+   opacity: 1;
+}
+
+.header h2{
+   transition: all 0.6s;
+   transform: translateY(-10px);
+   opacity: 0;
+}
+.header.active h2{
+   transition: all 0.7s;
+   transition-delay: 0.2s;
+   transform: translateY(0px);
+   opacity: 1;
+}

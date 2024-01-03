@@ -1,0 +1,19 @@
+.error{
+   width: 100%;
+   height: calc(100vh - 50px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+.error i{
+   position: absolute;
+   font-size: 20rem;
+   color: rgba(255, 45, 45, 0.2);
+   z-index: 2;
+}
+.error h3{
+   font-size: 5rem;
+   z-index: 10;
+   font-family: 'Josefin Sans', sans-serif;
+}

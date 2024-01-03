@@ -1,0 +1,53 @@
+{{#if userLink}}
+{{#if data}}
+<div class="add">
+   <form class="form" id="edit">
+      <div class="text">
+         <input id="editID" type="text" style="display: none;" value="{{data._id}}">
+         <input type="text" name="title" placeholder="Your Title *" required value="{{data.title}}">
+         <textarea type="text" name="content" placeholder="Your Content *" required>{{data.content}}</textarea>
+         <input type="text" name="author" placeholder="Your Name *" required value="{{data.author}}">
+      </div>
+
+      <div class="button">
+         <button type="submit">
+            <i class="fa-solid fa-plus"></i>
+         </button>
+         <label for="file">
+            <i class="fa-solid fa-image"></i>
+         </label>
+         <input name="file" type="file" id="file" style="display: none;">
+      </div>
+   </form>
+</div>
+
+<script>
+   const edit = document.getElementById('edit')
+   const editID = document.getElementById('editID')
+
+   edit.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const id = editID.value 
+      const formData = new FormData(e.target);
+      formData.append('id', id)
+      
+      fetch('/admin/edit', {
+         method: 'post',
+         body: formData
+      }).then((response) => response.json())
+         .then((res) => {
+            if (res.case) {
+               console.log(res)
+               setTimeout(() => {
+                  window.location.href = '/'
+               }, 1000 * 2)
+            }
+            else {
+               console.log(res)
+            }
+         })
+         .catch((err) => console.log(err))
+   })
+</script>
+{{/if}}
+{{/if}}
