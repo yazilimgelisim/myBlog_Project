@@ -6,7 +6,8 @@ const Contents = require(join(__dirname, '..', 'model', 'content.js'))
 
 
 router.get('/', async(req, res)=>{
-   const contents = await Contents.find().sort({$natural:-1});
+   let contents = await Contents.find();
+   contents = contents.reverse()
    res.render('site/index', {
       headerData:data,
       contents: contents.map(item=>item.toJSON())
